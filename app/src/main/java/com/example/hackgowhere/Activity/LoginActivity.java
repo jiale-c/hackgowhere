@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
         et_username = findViewById(R.id.editText_username);
         et_password = findViewById(R.id.editText_password);
         loginButton = findViewById(R.id.button_login);
-        googleLoginButton = findViewById(R.id.button_login_google);
         signUpButton = findViewById(R.id.button_signup);
         reset_password = findViewById(R.id.textView_forgot_password);
         progressBar = findViewById(R.id.login_progressbar);
@@ -186,124 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                 LOGIN(et_username.getText().toString().trim(), et_password.getText().toString().trim());
             }
         });
-
-        createRequest();
-
-        googleLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
     }
-
-    // Create request for google email (the pop - up)
-    private void createRequest() {
-
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-    }
-
-    // Function for the on-click
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-
-    // Checks for the request code
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-
-                firebaseAuthWithGoogle(account.getIdToken());
-
-
-            } catch (ApiException e) {
-                Toast.makeText(LoginActivity.this, "Authentication fail", Toast.LENGTH_SHORT).show();
-
-            }
-        }
-    }
-
-    // Brings user to dashboard if authentication is successful
-    private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                            FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                                    if (snapshot.exists()) {
-                                        startActivity(intent);
-                                    } else {
-                                        User user = new User(firebaseUser.getEmail(), firebaseUser.getDisplayName(), "NA", firebaseUser.getUid(), "offline", "default");
-                                        ref.child(firebaseUser.getUid()).setValue(user);
-                                        startActivity(intent);
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-                                }
-                            });
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(LoginActivity.this, "Authentication fail", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-//    private void login() {
-//        username = et_username.getText().toString();
-//        password = et_password.getText().toString();
-//
-//        ref.child(username).addListenerForSingleValueEvent(listener);
-//    }
-
-//    ValueEventListener listener = new ValueEventListener() {
-//        @Override
-//        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//            if (snapshot.exists()) {
-//                String pass = snapshot.child("password").getValue(String.class);
-//                if (pass.equals(password)) {
-//                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//                } else {
-//                    Toast.makeText(LoginActivity.this, "Invalid password!", Toast.LENGTH_LONG).show();
-//                }
-//
-//            } else {
-//                Toast.makeText(LoginActivity.this, "Invalid account!", Toast.LENGTH_LONG).show();
-//            }
-//
-//        }
-//
-//        @Override
-//        public void onCancelled(@NonNull DatabaseError error) {
-//            Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_LONG).show();
-//            return;
-//        }
-//    };
 
     private void LOGIN(String username, String password) {
         progressBar.setVisibility(View.VISIBLE);
