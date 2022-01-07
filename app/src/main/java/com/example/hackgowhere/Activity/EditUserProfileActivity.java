@@ -35,7 +35,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EditUserProfileActivity extends AppCompatActivity {
 
-    private EditText et_first_name, et_last_name, et_country, et_phone, et_interest;
+    private EditText et_first_name, et_last_name, et_country, et_phone, et_school, et_course, et_year;
     private Button update, back, upload;
     private DatabaseReference ref;
     private FirebaseAuth mAuth;
@@ -54,7 +54,9 @@ public class EditUserProfileActivity extends AppCompatActivity {
         et_last_name = findViewById(R.id.editText_edit_user_profile_last_name);
         et_country = findViewById(R.id.editText_edit_user_profile_country);
         et_phone = findViewById(R.id.editText_edit_user_profile_phone);
-        et_interest = findViewById(R.id.editText_edit_user_profile_interest);
+        et_school = findViewById(R.id.editText_edit_user_profile_school);
+        et_course = findViewById(R.id.editText_edit_user_profile_course);
+        et_year = findViewById(R.id.editTextNumber_edit_user_profile_year);
         update = findViewById(R.id.button_edit_user_profile_update);
         back = findViewById(R.id.button_edit_user_profile_back);
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -122,7 +124,9 @@ public class EditUserProfileActivity extends AppCompatActivity {
         String last_name = et_last_name.getText().toString().trim();
         String country = et_country.getText().toString().trim();
         String phone = et_phone.getText().toString().trim();
-        String interest = et_interest.getText().toString().trim();
+        String school = et_school.getText().toString().trim();
+        String course = et_course.getText().toString().trim();
+        String year = et_year.getText().toString().trim();
         DatabaseReference UIDref = (DatabaseReference) ref.child(user.getUid());
 
         if (first_name.isEmpty()) {
@@ -145,9 +149,19 @@ public class EditUserProfileActivity extends AppCompatActivity {
             et_phone.requestFocus();
             return;
         }
-        if (interest.isEmpty()) {
-            et_interest.setError("Field cannot be empty");
-            et_interest.requestFocus();
+        if (school.isEmpty()) {
+            et_school.setError("Field cannot be empty");
+            et_school.requestFocus();
+            return;
+        }
+        if (course.isEmpty()) {
+            et_course.setError("Field cannot be empty");
+            et_course.requestFocus();
+            return;
+        }
+        if (year.isEmpty()) {
+            et_year.setError("Field cannot be empty");
+            et_year.requestFocus();
             return;
         }
 
@@ -159,7 +173,9 @@ public class EditUserProfileActivity extends AppCompatActivity {
                         UIDref.child("last_name").setValue(last_name);
                         UIDref.child("country").setValue(country);
                         UIDref.child("phone").setValue(phone);
-                        UIDref.child("interest").setValue(interest);
+                        UIDref.child("school").setValue(school);
+                        UIDref.child("course").setValue(course);
+                        UIDref.child("year").setValue(year);
                         Toast.makeText(EditUserProfileActivity.this, "Information updated successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(EditUserProfileActivity.this, UserProfileActivity.class);
                         startActivity(intent);

@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class UserProfileActivity extends AppCompatActivity {
 
-    private TextView tv_db_first_name, tv_db_last_name, tv_db_phone, tv_db_email, tv_db_interest, tv_db_country;
+    private TextView tv_db_first_name, tv_db_last_name, tv_db_phone, tv_db_email, tv_db_school, tv_db_country, tv_db_course, tv_db_year;
     private Button edit, back;
     private DatabaseReference ref;
     private FirebaseAuth mAuth;
@@ -40,7 +40,9 @@ public class UserProfileActivity extends AppCompatActivity {
         tv_db_last_name = findViewById(R.id.textView_user_profile_db_last_name);
         tv_db_phone = findViewById(R.id.textView_user_profile_db_phone);
         tv_db_email = findViewById(R.id.textView_user_profile_db_email);
-        tv_db_interest = findViewById(R.id.textView_user_profile_db_interest);
+        tv_db_school = findViewById(R.id.textView_user_profile_db_school);
+        tv_db_course = findViewById(R.id.textView_user_profile_db_course);
+        tv_db_year = findViewById(R.id.textView_user_profile_db_year);
         tv_db_country = findViewById(R.id.textView_user_profile_db_country);
         edit = findViewById(R.id.button_user_profile_edit);
         back = findViewById(R.id.button_user_profile_back);
@@ -59,8 +61,10 @@ public class UserProfileActivity extends AppCompatActivity {
                         tv_db_last_name.setText(snapshot.child("last_name").getValue(String.class));
                         tv_db_phone.setText(snapshot.child("phone").getValue(String.class));
                         tv_db_email.setText(snapshot.child("email").getValue(String.class));
-                        tv_db_interest.setText(snapshot.child("interest").getValue(String.class));
+                        tv_db_school.setText(snapshot.child("school").getValue(String.class));
                         tv_db_country.setText(snapshot.child("country").getValue(String.class));
+                        tv_db_course.setText(snapshot.child("course").getValue(String.class));
+                        tv_db_year.setText(snapshot.child("year").getValue(String.class));
                         Picasso.get().load(snapshot.child("profile_picture").getValue(String.class)).into(profile_picture);
                 }
             }

@@ -46,7 +46,7 @@
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.95" />
+            app:layout_constraintVertical_bias="0.97" />
 
         <TextView
             android:id="@+id/textView_edit_user_profile_first_name"
@@ -82,7 +82,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView_edit_user_profile_email"
+            android:id="@+id/SchooltextView_edit_user_profile_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Country"
@@ -98,20 +98,36 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView_edit_user_profile_interest_1"
+            android:id="@+id/textView_edit_user_profile_school"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Interest"
+            android:text="School"
             android:textSize="15dp"
             android:layout_marginTop="30dp"
             android:drawableLeft="@drawable/ic_star"
             android:drawablePadding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView_edit_user_profile_email"
+            app:layout_constraintEnd_toEndOf="@+id/SchooltextView_edit_user_profile_country"
             app:layout_constraintHorizontal_bias="0.043"
-            app:layout_constraintStart_toStartOf="@+id/textView_edit_user_profile_email"
-            app:layout_constraintTop_toBottomOf="@+id/textView_edit_user_profile_email"
+            app:layout_constraintStart_toStartOf="@+id/SchooltextView_edit_user_profile_country"
+            app:layout_constraintTop_toBottomOf="@+id/SchooltextView_edit_user_profile_country"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView_edit_user_profile_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:drawableLeft="@drawable/ic_star"
+            android:drawablePadding="10dp"
+            android:text="Course / Year"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/SchooltextView_edit_user_profile_country"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/SchooltextView_edit_user_profile_country"
+            app:layout_constraintTop_toBottomOf="@+id/SchooltextView_edit_user_profile_country"
+            app:layout_constraintVertical_bias="0.38" />
 
         <TextView
             android:id="@+id/textView_edit_user_profile_last_name"
@@ -145,6 +161,21 @@
             />
 
         <EditText
+            android:id="@+id/editTextNumber_edit_user_profile_year"
+            android:layout_width="42dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="0"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_edit_user_profile_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editText_edit_user_profile_course"
+            app:layout_constraintTop_toTopOf="@+id/textView_edit_user_profile_course"
+            app:layout_constraintVertical_bias="0.458"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
             android:id="@+id/editText_edit_user_profile_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,10 +183,10 @@
             android:ems="13"
             android:hint="Enter here"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toBottomOf="@+id/textView_edit_user_profile_email"
+            app:layout_constraintBottom_toBottomOf="@+id/SchooltextView_edit_user_profile_country"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.81"
-            app:layout_constraintStart_toEndOf="@+id/textView_edit_user_profile_email"
+            app:layout_constraintStart_toEndOf="@+id/SchooltextView_edit_user_profile_country"
             app:layout_constraintTop_toBottomOf="@+id/editText_edit_user_profile_phone"
             app:layout_constraintVertical_bias="0.333" />
 
@@ -200,19 +231,35 @@
             app:layout_constraintTop_toTopOf="@+id/textView_edit_user_profile_first_name" />
 
         <EditText
-            android:id="@+id/editText_edit_user_profile_interest"
+            android:id="@+id/editText_edit_user_profile_school"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:ems="13"
             android:hint="Enter here"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/textView_edit_user_profile_interest_1"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_edit_user_profile_school"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toEndOf="@+id/textView_edit_user_profile_interest_1"
-            app:layout_constraintTop_toBottomOf="@+id/editText_edit_user_profile_email"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintStart_toEndOf="@+id/textView_edit_user_profile_school"
+            app:layout_constraintTop_toBottomOf="@+id/editText_edit_user_profile_country"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <EditText
+            android:id="@+id/editText_edit_user_profile_course"
+            android:layout_width="176dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:ems="13"
+            android:hint="Enter here"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_edit_user_profile_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toEndOf="@+id/textView_edit_user_profile_course"
+            app:layout_constraintTop_toBottomOf="@+id/editText_edit_user_profile_school"
+            app:layout_constraintVertical_bias="0.076" />
 
         <Button
             android:id="@+id/button_edit_user_profile_update"
@@ -221,11 +268,12 @@
             android:backgroundTint="@color/purple_200"
             android:text="Update"
             android:textAllCaps="false"
-            app:layout_constraintVertical_bias="0.85"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.628"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.97" />
 
         <Button
             android:id="@+id/button_edit_user_profile_upload_image"
