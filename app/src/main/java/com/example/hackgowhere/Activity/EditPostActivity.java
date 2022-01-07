@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,14 +28,15 @@ import org.jetbrains.annotations.NotNull;
 public class EditPostActivity extends AppCompatActivity {
 
     private Uri imageUri;
-    private String imageUrl, categoryName, postId;
+    private String imageUrl, categoryName, postId, prevCategory, prevWebsite;
 
     private ImageView close;
     private ImageView imageAdded;
     private TextView post;
     private EditText description;
     private EditText title;
-    private EditText price;
+    private EditText category, website;
+    private Spinner dropdown;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -48,10 +51,22 @@ public class EditPostActivity extends AppCompatActivity {
         post = findViewById(R.id.post);
         description = findViewById(R.id.description);
         title = findViewById(R.id.title);
-        price = findViewById(R.id.price);
+        category = findViewById(R.id.category);
+        website = findViewById(R.id.website);
         postId = getIntent().getStringExtra("postId");
+        prevCategory = getIntent().getStringExtra("category");
+        prevWebsite = getIntent().getStringExtra("website");
         categoryName = getIntent().getStringExtra("categoryName");
         imageUrl = getIntent().getStringExtra("imageUrl");
+        //prevDifficulty = getIntent().getIntExtra("difficulty");
+        dropdown = findViewById(R.id.spinner1);
+        //create a list of items for the spinner.
+        String[] items = new String[]{"Beginner", "Intermediate", "Advanced", "Free for all"};
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        //set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
 
         InputFilter filter = new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end,
@@ -64,8 +79,6 @@ public class EditPostActivity extends AppCompatActivity {
                 return null;
             }
         };
-
-        price.setFilters(new InputFilter[]{filter});
 
 
         close.setOnClickListener(new View.OnClickListener() {
@@ -88,11 +101,13 @@ public class EditPostActivity extends AppCompatActivity {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 String editTitle = "" + snapshot.child("title").getValue();
                 String editDescription= "" + snapshot.child("description").getValue();
-                String editPrice = "" + snapshot.child("price").getValue();
                 Picasso.get().load(imageUrl).into(imageAdded);
                 title.setText(editTitle);
                 description.setText(editDescription);
-                price.setText(editPrice);
+                category.setText(prevCategory);
+                website.setText(prevWebsite);
+                //difficulty.setSelection(prevDifficulty);
+
             }
 
             @Override
@@ -110,13 +125,17 @@ public class EditPostActivity extends AppCompatActivity {
 
                 String newDesc = description.getText().toString().trim();
                 String newTitle = title.getText().toString().trim();
-                String newPrice = price.getText().toString().trim();
+                String newCategory = category.getText().toString().trim();
+                String newWebsite = website.getText().toString().trim();
+                String newDifficulty = dropdown.getSelectedItem().toString();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts").child(postId);
 
         ref.child("description").setValue(newDesc);
         ref.child("title").setValue(newTitle);
-        ref.child("price").setValue(newPrice);
+        ref.child("category").setValue(newCategory);
+        ref.child("difficulty").setValue(newDifficulty);
+        ref.child("website").setValue(newWebsite);
 
         pd.dismiss();
         finish();

@@ -40,7 +40,7 @@ import java.util.List;
 
 public class PostDetailFragment extends Fragment {
 
-    private String postId, categoryName, imageUrl;
+    private String postId, categoryName, imageUrl, category, website, difficulty;
     private RecyclerView recyclerView;
     private PostAdapter postAdapter;
     private List<Post> postList;
@@ -66,7 +66,6 @@ public class PostDetailFragment extends Fragment {
         webButton = view.findViewById(R.id.chatButton);
         editButton = view.findViewById(R.id.editButton);
         firebaseAuth = FirebaseAuth.getInstance();
-
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
 
@@ -102,10 +101,16 @@ public class PostDetailFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                         categoryName = (String) snapshot.child("categoryName").getValue();
+                        category = (String) snapshot.child("category").getValue();
+                        website = (String) snapshot.child("website").getValue();
                         imageUrl = (String) snapshot.child("imageurl").getValue();
+                        difficulty = (String) snapshot.child("difficulty").getValue();
                         Intent intent = new Intent(getActivity(), EditPostActivity.class).putExtra("postId", postId);
                         intent.putExtra("categoryName", categoryName);
                         intent.putExtra("imageUrl", imageUrl);
+                        intent.putExtra("category", category);
+                        intent.putExtra("website", website);
+                        intent.putExtra("difficulty", difficulty);
                         startActivity(intent);
                     }
 
