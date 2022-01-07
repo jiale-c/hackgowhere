@@ -62,7 +62,7 @@ public class ReviewOrderActivity extends AppCompatActivity {
                 Picasso.get().load(post.getImageurl()).into(image);
                 title.setText(post.getTitle());
                 desc.setText(post.getDescription());
-                price.setText("$" + post.getPrice());
+                price.setText("$" + post.getWebsite());
             }
 
             @Override
@@ -83,56 +83,6 @@ public class ReviewOrderActivity extends AppCompatActivity {
 
             }
         });
-
-
-        paymentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                        new AlertDialog.Builder(ReviewOrderActivity.this)
-                                    .setTitle("Payment")
-                                    .setMessage("Are you sure?")
-                                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                                                    int balance = Integer.parseInt("" + snapshot.child("balance").getValue());
-                                                    int postPrice = Integer.parseInt(mPost.getPrice());
-                                                    if (balance < postPrice) {
-                                                        Toast.makeText(ReviewOrderActivity.this, "Insufficient Balance", Toast.LENGTH_LONG).show();
-                                                        return;
-                                                    }
-                                                    Integer newBalance = balance - postPrice;
-                                                    FirebaseDatabase.getInstance().getReference().child("Users").child(firebaseUser.getUid()).child("balance").setValue(newBalance);
-                                                    String currentTime = Calendar.getInstance().getTime().toString();
-                                                    String uNumber = Long.toString(Calendar.getInstance().getTimeInMillis());
-                                                    String refNumber = firebaseUser.getUid() + uNumber;
-                                                    OrderHistory orderHistory1 = new OrderHistory(refNumber
-                                                            , postPrice, "In Progress", mPost.getTitle(), "" + firebaseUser.getUid(), mPost.getPublisher(), currentTime, "Buyer", postId);
-                                                    FirebaseDatabase.getInstance().getReference("OrderHistory").child(firebaseUser.getUid()).child(refNumber).setValue(orderHistory1);
-                                                    OrderHistory orderHistory2 = new OrderHistory(refNumber
-                                                            , postPrice, "In Progress", mPost.getTitle(), "" + firebaseUser.getUid(), mPost.getPublisher(), currentTime, "Seller", postId);
-                                                    FirebaseDatabase.getInstance().getReference("OrderHistory").child(mPost.getPublisher()).child(refNumber).setValue(orderHistory2);
-                                                    int pointsBalance = snapshot.child("points").getValue(Integer.class);
-                                                    FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("points").setValue(pointsBalance + postPrice);
-                                                    Toast.makeText(ReviewOrderActivity.this, "Payment success." + String.valueOf(postPrice) + " Reward points have been credited to your account.", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(ReviewOrderActivity.this, OrderHistoryActivity.class));
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-                                                }
-                                            });}}).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // do nothing
-                                }
-                            }).setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
-
-                        }
-                });
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

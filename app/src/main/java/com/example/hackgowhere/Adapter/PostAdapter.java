@@ -62,7 +62,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
             Picasso.get().load(post.getImageurl()).into(holder.postImage);
             holder.description.setText(post.getDescription());
             holder.title.setText(post.getTitle());
-            holder.price.setText("Price: $" + post.getPrice());
+            holder.category.setText("Category: " + post.getCategory());
+            holder.difficulty.setText("Difficulty: " + post.getDifficulty());
 
             FirebaseDatabase.getInstance().getReference().child("Users").child(post.getPublisher()).addValueEventListener(new ValueEventListener() {
                 @Override
@@ -78,56 +79,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
             });
 
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
-            ref.child(postId).child("Ratings").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                    float ratingSum = 0;
-                    long numberOfReviews = 0;
-                    if (snapshot.exists()) {
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            float rating = Float.parseFloat("" + ds.child("ratings").getValue());
-                            ratingSum = ratingSum + rating;
-                        }
-                        numberOfReviews = snapshot.getChildrenCount();
-                        ratingSum = ratingSum / numberOfReviews;
-                    } else {
-                        ratingSum = 0;
-                    }
-
-                    numberOfReviews = snapshot.getChildrenCount();
-                    holder.rating.setText("" + String.format("%.1f", ratingSum));
-                    holder.numOfRating.setText("(" + numberOfReviews + ")");
-                }
-
-                @Override
-                public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                }
-            });
-
-
-
-        /*holder.imageProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mContext.getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
-                        .edit().putString("profileId", post.getPublisher()).apply();
-
-                ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new ProfileFragment()).commit();
-            }
-        });
-
-        holder.username.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mContext.getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
-                        .edit().putString("profileId", post.getPublisher()).apply();
-
-                ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new ProfileFragment()).commit();
-            }
-        });
-         */
 
             holder.postImage.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -136,16 +87,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
 
                     ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new PostDetailFragment()).commit();
-                }
-            });
-
-
-            holder.reviewCard.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, ReviewActivity.class);
-                    intent.putExtra("postId", postId);
-                    mContext.startActivity(intent);
                 }
             });
         }
@@ -168,28 +109,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
         public ImageView more;
 
         public TextView username;
-        public TextView noOfLikes;
-        public TextView author;
-        private TextView rating, numOfRating;
-        private CardView reviewCard;
-        public RatingBar ratingBar;
         TextView title;
         TextView description;
-        TextView price;
+        TextView category, difficulty;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
 
-            reviewCard = itemView.findViewById(R.id.reviewCard);
-            rating = itemView.findViewById(R.id.rating);
-            numOfRating = itemView.findViewById(R.id.numOfRating);
             imageProfile = itemView.findViewById(R.id.image_profile);
             postImage = itemView.findViewById(R.id.post_image);
             username = itemView.findViewById(R.id.username);
             title = itemView.findViewById(R.id.title);
-            price = itemView.findViewById(R.id.price);
+            category = itemView.findViewById(R.id.category);
+            difficulty = itemView.findViewById(R.id.difficulty);
             description = itemView.findViewById(R.id.description);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
 
         }
     }

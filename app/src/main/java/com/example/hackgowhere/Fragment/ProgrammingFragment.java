@@ -79,6 +79,12 @@ public class ProgrammingFragment extends Fragment {
                 }
             });
         }
+        newPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), PostProgrammingActivity.class));
+            }
+        });
 
         return view;
     }

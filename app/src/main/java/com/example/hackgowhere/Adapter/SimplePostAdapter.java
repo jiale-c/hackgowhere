@@ -56,7 +56,6 @@ public class SimplePostAdapter extends RecyclerView.Adapter<SimplePostAdapter.Vi
         postId = post.getPostid();
         Picasso.get().load(post.getImageurl()).into(holder.postImage);
         holder.title.setText(post.getTitle());
-        holder.price.setText("$ " + post.getPrice());
 
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
@@ -74,8 +73,6 @@ public class SimplePostAdapter extends RecyclerView.Adapter<SimplePostAdapter.Vi
                     numberOfReviews = snapshot.getChildrenCount();
                     ratingSum = ratingSum / numberOfReviews;
                 }
-                holder.rating.setText("" + ratingSum);
-                holder.numOfRating.setText("(" + numberOfReviews + ")");
             }
 
             @Override
@@ -130,10 +127,7 @@ public class SimplePostAdapter extends RecyclerView.Adapter<SimplePostAdapter.Vi
             postImage = itemView.findViewById(R.id.post_image);
             //username = itemView.findViewById(R.id.username);
             title = itemView.findViewById(R.id.title);
-            price = itemView.findViewById(R.id.price);
-            rating = itemView.findViewById(R.id.rating);
             cardView = itemView.findViewById(R.id.card);
-            numOfRating = itemView.findViewById(R.id.numOfRating);
             //description = itemView.findViewById(R.id.description);
 
         }

@@ -49,7 +49,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
         holder.title.setText(post.getTitle());
         Picasso.get().load(post.getImageurl()).into(holder.postImage);
-        holder.price.setText("$ " + post.getPrice());
+        holder.price.setText("$ " + post.getWebsite());
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
 
@@ -113,11 +113,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             postImage = itemView.findViewById(R.id.post_image);
             title = itemView.findViewById(R.id.title); // need to call using itemView because we are not inside an Activity
             parent = itemView.findViewById(R.id.card);
-            price = itemView.findViewById(R.id.price);
-            numOfRating = itemView.findViewById(R.id.numOfRating);
-            rating = itemView.findViewById(R.id.rating);
-
-
 
         }
     }

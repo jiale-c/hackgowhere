@@ -8,21 +8,23 @@ public class Post {
     private String postid;
     private String publisher;
     private String categoryName;
-    private String price;
+    private String website, difficulty, category;
     private float rating;
 
     public Post() {
     }
 
-    public Post(String title, String description, String imageurl, String categoryName, String price, String postid, String publisher) {
+    public Post(String title, String description, String imageurl, String categoryName, String website, String postid, String publisher, String difficulty, String category) {
         this.description = description;
         this.imageurl = imageurl;
         this.postid = postid;
         this.title = title;
         this.publisher = publisher;
         this.categoryName = categoryName;
-        this.price = price;
+        this.website = website;
         this.rating = 0;
+        this.difficulty=difficulty;
+        this.category=category;
     }
 
     public String getDescription() {
@@ -31,6 +33,12 @@ public class Post {
 
     public String getTitle() {
         return title;
+    }
+    public String getDifficulty() {
+        return difficulty;
+    }
+    public String getCategory() {
+        return category;
     }
 
     public void setDescription(String description) {
@@ -61,7 +69,7 @@ public class Post {
         return publisher;
     }
 
-    public String getPrice() { return price; }
+    public String getWebsite() { return website; }
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;

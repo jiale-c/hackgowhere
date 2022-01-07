@@ -25,8 +25,10 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +44,8 @@ public class PostProgrammingActivity extends AppCompatActivity {
     private TextView post;
     private EditText description;
     private EditText title;
-    private EditText price;
+    private EditText website,category;
+    private Spinner spinner;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -57,7 +60,9 @@ public class PostProgrammingActivity extends AppCompatActivity {
         post = findViewById(R.id.post);
         description = findViewById(R.id.description);
         title = findViewById(R.id.title);
-        price = findViewById(R.id.price);
+        website = findViewById(R.id.website);
+        category = findViewById(R.id.category);
+        spinner = findViewById(R.id.spinner1);
 
         InputFilter filter = new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end,
@@ -71,7 +76,15 @@ public class PostProgrammingActivity extends AppCompatActivity {
             }
         };
 
-        price.setFilters(new InputFilter[]{filter});
+        //get the spinner from the xml.
+        Spinner dropdown = findViewById(R.id.spinner1);
+//create a list of items for the spinner.
+        String[] items = new String[]{"Beginner", "Intermediate", "Advanced", "Free for all"};
+//create an adapter to describe how the items are displayed, adapters are used in several places in android.
+//There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+//set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
 
 
         close.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +139,9 @@ public class PostProgrammingActivity extends AppCompatActivity {
                     map.put("description" , description.getText().toString());
                     map.put("categoryName", "Programming");
                     map.put("title" , title.getText().toString());
-                    map.put("price", price.getText().toString());
+                    map.put("difficulty", spinner.getSelectedItem().toString());
+                    map.put("category", category.getText().toString());
+                    map.put("website", website.getText().toString());
                     map.put("publisher" , FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                     ref.child(postId).setValue(map);

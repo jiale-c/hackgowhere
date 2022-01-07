@@ -3,6 +3,7 @@ package com.example.hackgowhere.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,7 +43,7 @@ public class PostDetailFragment extends Fragment {
     private RecyclerView recyclerView;
     private PostAdapter postAdapter;
     private List<Post> postList;
-    private Button buyButton, removeButton, chatButton, editButton;
+    private Button buyButton, removeButton, webButton, editButton;
     private FirebaseAuth firebaseAuth;
 
 
@@ -61,13 +62,12 @@ public class PostDetailFragment extends Fragment {
         recyclerView.setAdapter(postAdapter);
         buyButton = view.findViewById(R.id.buyButton);
         removeButton = view.findViewById(R.id.removeButton);
-        chatButton = view.findViewById(R.id.chatButton);
+        webButton = view.findViewById(R.id.chatButton);
         editButton = view.findViewById(R.id.editButton);
         firebaseAuth = FirebaseAuth.getInstance();
 
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
-        //DatabaseReference test = FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getCurrentUser().getUid()).child()
 
         FirebaseDatabase.getInstance().getReference().child("Posts").child(postId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,7 +80,7 @@ public class PostDetailFragment extends Fragment {
                 if (firebaseAuth.getUid().equals(dataSnapshot.child("publisher").getValue())) {
 
                     buyButton.setVisibility(View.INVISIBLE);
-                    chatButton.setVisibility(View.INVISIBLE);
+                    webButton.setVisibility(View.INVISIBLE);
                 }
                 else {
                     removeButton.setVisibility(View.INVISIBLE);
@@ -147,23 +147,12 @@ public class PostDetailFragment extends Fragment {
         });
 
 
-        chatButton.setOnClickListener(new View.OnClickListener() {
+        webButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("Posts").child(postId).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                        String posterUID = snapshot.child("publisher").getValue(String.class);
-                        Intent intent = new Intent(getActivity(), MessageActivity.class);
-                        intent.putExtra("userid", posterUID);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-                    }
-                });
+                String web = ref.child(postId).child("website").toString();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(web));
+                startActivity(browserIntent);
             }
         });
 

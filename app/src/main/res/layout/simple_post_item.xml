@@ -27,44 +27,10 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_search" />
 
-            <ImageButton
-                android:id="@+id/ratingStar"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="14dp"
-                android:layout_toRightOf="@id/post_image"
-                android:background="@drawable/ic_reviewstar" />
-
-            <TextView
-                android:id="@+id/rating"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginTop="14dp"
-                android:layout_toRightOf="@+id/ratingStar"
-                android:gravity="center"
-                android:text="5.0"
-                android:textColor="@color/yellow"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/numOfRating"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="14dp"
-                android:layout_toRightOf="@+id/rating"
-                android:gravity="center"
-                android:text="(3)"
-                android:textColor="@color/grey"
-                android:textSize="16sp" />
-
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ratingStar"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="14dp"
                 android:layout_toRightOf="@+id/post_image"
@@ -72,16 +38,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:padding="10dp"
-                android:text="price"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
         </RelativeLayout>
     </LinearLayout>
 
