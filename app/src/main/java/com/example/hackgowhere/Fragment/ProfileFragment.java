@@ -121,7 +121,8 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemClick
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String[] management = {"User Profile", "Credentials", "Payment", "Rewards", "Orders", "Logout"};
+//        String[] management = {"User Profile", "Credentials", "Payment", "Rewards", "Orders", "Logout"};
+        String[] management = {"User Profile", "Applied Hackathons", "Logout"};
 
         listView = view.findViewById(R.id.ListView_profile);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, management);
@@ -140,25 +141,12 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemClick
             finishActivity();
         }
         if (position == 1) {
-            Intent intent = new Intent(getActivity(), Credentials.class);
-            startActivity(intent);
-            finishActivity();
-        }
-        if (position == 2) {
-            Intent intent = new Intent(getActivity(), Payment.class);
-            startActivity(intent);
-            finishActivity();
-        } if (position == 3) {
-            Intent intent = new Intent(getActivity(), Rewards.class);
-            startActivity(intent);
-            finishActivity();
-        } if (position == 4) {
             Intent intent = new Intent(getActivity(), OrderHistoryActivity.class);
             startActivity(intent);
             finishActivity();
         }
         // Logout
-        if (position == 5) {
+        if (position == 2) {
             new AlertDialog.Builder(getActivity())
                     .setCancelable(true)
                     .setMessage("Confirm Logout?")

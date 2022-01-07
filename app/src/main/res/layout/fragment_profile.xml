@@ -51,25 +51,11 @@
             android:id="@+id/ListView_profile"
             android:layout_width="409dp"
             android:layout_height="569dp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp"
-            tools:ignore="MissingConstraints" >
+            tools:layout_editor_absoluteY="0dp">
 
         </ListView>
-
-        <Button
-            android:id="@+id/button_payment_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_200"
-            android:text="back"
-            android:textAllCaps="false"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintVertical_bias="0.95"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

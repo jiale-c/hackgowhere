@@ -37,6 +37,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_order_history);
         setContentView(R.layout.activity_order_history);
 
         recyclerView = findViewById(R.id.orderhistory_recycler_view);
