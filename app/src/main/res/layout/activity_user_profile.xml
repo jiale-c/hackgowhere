@@ -46,7 +46,7 @@
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.95" />
+            app:layout_constraintVertical_bias="0.97" />
 
         <TextView
             android:id="@+id/textView_user_profile_first_name"
@@ -104,7 +104,7 @@
             android:text="School"
             android:textSize="15dp"
             android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/ic_star"
+            android:drawableLeft="@drawable/ic_edit"
             android:drawablePadding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView_user_profile_email"
@@ -210,17 +210,18 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_width="110dp"
+            android:layout_height="44dp"
+            android:drawableLeft="@drawable/ic_info"
             android:drawablePadding="10dp"
             android:text="Course / Year"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView_user_profile_school_1"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintStart_toStartOf="@+id/textView_user_profile_school_1"
             app:layout_constraintTop_toBottomOf="@+id/textView_user_profile_school_1"
-            app:layout_constraintVertical_bias="0.016" />
+            app:layout_constraintVertical_bias="0.112" />
+
 
         <TextView
             android:id="@+id/textView_user_profile_db_country"
@@ -231,11 +232,10 @@
 
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.227"
+            app:layout_constraintHorizontal_bias="0.084"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="@+id/textView5"
             app:layout_constraintVertical_bias="1.0" />
-
 
         <TextView
             android:id="@+id/textView5"
@@ -264,7 +264,7 @@
             app:layout_constraintHorizontal_bias="0.23"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/textView4"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.357" />
 
         <TextView
             android:id="@+id/textView_user_profile_db_year"
@@ -275,10 +275,10 @@
 
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.716"
+            app:layout_constraintHorizontal_bias="0.548"
             app:layout_constraintStart_toEndOf="@+id/textView_user_profile_db_course"
             app:layout_constraintTop_toTopOf="@+id/textView4"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.352" />
 
         <Button
             android:id="@+id/button_user_profile_edit"
@@ -293,7 +293,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.951" />
+            app:layout_constraintVertical_bias="0.97" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
