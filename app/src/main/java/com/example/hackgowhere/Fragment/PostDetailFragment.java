@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.hackgowhere.Activity.EditPostActivity;
 import com.example.hackgowhere.Activity.MessageActivity;
@@ -150,9 +151,20 @@ public class PostDetailFragment extends Fragment {
         webButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String web = ref.child(postId).child("website").toString();
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(web));
-                startActivity(browserIntent);
+                ref.child(postId).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        String web = (String) snapshot.child("website").getValue().toString();
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(web));
+                        startActivity(browserIntent);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
             }
         });
 
