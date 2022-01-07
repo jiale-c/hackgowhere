@@ -3,10 +3,11 @@ package com.example.hackgowhere.Model;
 public class User {
     public String status, email, username, password, profile_picture, id, search, imageurl;
     public int balance, points;
+    boolean isCompany;
 
     public User() {}
 
-    public User(String email, String username, String password, String id, String status, String imageurl){
+    public User(String email, String username, String password, String id, String status, String imageurl, boolean isCompany){
         this.email = email;
         this.username = username;
         this.imageurl = imageurl;
@@ -17,6 +18,7 @@ public class User {
         this.status = status;
         this.search = username.toLowerCase();
         this.points = 0;
+        this.isCompany = isCompany;
     }
 
     public String getEmail() {

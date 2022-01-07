@@ -1,8 +1,5 @@
 package com.example.hackgowhere.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -15,9 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hackgowhere.Model.User;
 import com.example.hackgowhere.Model.UserNameLogin;
 import com.example.hackgowhere.R;
-import com.example.hackgowhere.Model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,10 +30,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+public class CompanySignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView signUp;
-    private EditText editTextEmail, editTextUsername, editTextPassword;
+    private EditText editTextEmail, editTextCompanyName, editTextPassword;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
@@ -41,15 +41,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_company_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference("Users");
         signUp = (Button) findViewById(R.id.signup);
         signUp.setOnClickListener(this);
 
+        editTextCompanyName = (EditText) findViewById(R.id.org_name);
         editTextEmail = (EditText) findViewById(R.id.email);
-        editTextUsername = (EditText) findViewById(R.id.username);
         editTextPassword = (EditText) findViewById(R.id.password);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -67,8 +67,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
         };
 
-        editTextUsername.setFilters(new InputFilter[]{filter});
-
     }
 
     @Override
@@ -81,8 +79,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void signUp() {
+        String username = editTextCompanyName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
-        String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         if(email.isEmpty()) {
@@ -90,11 +88,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             editTextEmail.requestFocus();
             return;
         }
-        if(username.isEmpty()) {
-            editTextUsername.setError("Email is required!");
-            editTextUsername.requestFocus();
-            return;
-        }
+
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             editTextEmail.setError("Please enter a valid email address");
             editTextEmail.requestFocus();
@@ -115,8 +109,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    editTextUsername.setError("Username already taken");
-                    editTextUsername.requestFocus();
+                    editTextEmail.setError("Username already taken");
+                    editTextEmail.requestFocus();
                 } else {
                     progressBar.setVisibility(View.VISIBLE);
                     mAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString().trim(),editTextPassword.getText().toString().trim())
@@ -124,28 +118,28 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        User user = new User(email, username, password, mAuth.getCurrentUser().getUid(), "offline", "default", false);
+                                        User user = new User(email, username, password, mAuth.getCurrentUser().getUid(), "offline", "default", true);
                                         ref.child(mAuth.getCurrentUser().getUid()).setValue(user);
-                                        FirebaseDatabase.getInstance().getReference("UsernameList").child(username).setValue(new UserNameLogin(email,password));
+                                        //FirebaseDatabase.getInstance().getReference("UsernameList").child(username).setValue(new UserNameLogin(email,password));
 
                                         mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(SignUpActivity.this, "User has been registered successfully." +
+                                                    Toast.makeText(CompanySignUpActivity.this, "User has been registered successfully." +
                                                             "Please check your email for your verification link", Toast.LENGTH_LONG).show();
                                                     mAuth.signOut();
                                                     progressBar.setVisibility(View.GONE);
-                                                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                                    startActivity(new Intent(CompanySignUpActivity.this, LoginActivity.class));
                                                 } else {
                                                     progressBar.setVisibility(View.GONE);
-                                                    Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(CompanySignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
                                     }
                                     else {
-                                        Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(CompanySignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
