@@ -81,11 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void status(String status) {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        //DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("status", status);
 
-        //reference.updateChildren(hashMap);
+        reference.updateChildren(hashMap);
 
     }
 
@@ -94,36 +94,5 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         status("online");
     }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
-
-
-//    // Create request for google email (the pop - up)
-//    private void createRequest() {
-//
-//        // Configure Google Sign In
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken(getString(R.string.default_web_client_id))
-//                .requestEmail()
-//                .build();
-//
-//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-//    }
-//
-//    private void signOut() {
-//        mGoogleSignInClient.signOut()
-//                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//                        //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        startActivity(intent);
-//                    }
-//                });
-//    }
 
 }

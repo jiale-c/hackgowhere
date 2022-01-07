@@ -191,11 +191,11 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemClick
     private void status(String status) {
         firebaseUser = mAuth.getCurrentUser();
         DatabaseReference reference;
-        //reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("status", status);
 
-        //reference.updateChildren(hashMap);
+        reference.updateChildren(hashMap);
 
     }
 
