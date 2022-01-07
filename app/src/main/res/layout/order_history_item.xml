@@ -24,7 +24,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ref No.:"
+                android:text="Event:"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
@@ -45,80 +45,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price:"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/order_history_item_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$0"
-                android:textColor="@color/black"
-                android:layout_marginLeft="8dp"
-                android:textSize="16dp"
-                />
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lesson:"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/order_history_item_postTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"
-                android:textColor="@color/black"
-                android:layout_marginLeft="8dp"
-                android:textSize="16dp"
-                />
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tutor:"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/order_history_item_tutor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tutor name"
-                android:textColor="@color/black"
-                android:layout_marginLeft="8dp"
-                android:textSize="16dp"
-                />
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -151,55 +88,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type: "
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/order_history_item_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Seller/Buyer"
-                android:textColor="@color/black"
-                android:layout_marginLeft="8dp"
-                android:textSize="16dp"
-                />
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status:"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/order_history_item_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="In Progress / Completed"
-                android:textColor="@color/black"
-                android:layout_marginLeft="8dp"
-                android:textSize="16dp"
-                />
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
     </LinearLayout>
 

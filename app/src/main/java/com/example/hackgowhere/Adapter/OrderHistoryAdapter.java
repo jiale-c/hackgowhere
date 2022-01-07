@@ -57,7 +57,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 String username = "" + snapshot.child("username").getValue();
-                holder.tutor.setText(username);
+                //holder.tutor.setText(username);
             }
 
             @Override
@@ -65,26 +65,26 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
 
             }
         });
-        holder.ref.setText(orderHistory.getRefNumber());
-        holder.price.setText("" + orderHistory.getPostPrice());
-        holder.postTitle.setText(orderHistory.getPostTitle());
+        holder.ref.setText(orderHistory.getEventName());
+//        holder.price.setText("" + orderHistory.getPostPrice());
+//        holder.postTitle.setText(orderHistory.getPostTitle());
         holder.date.setText(orderHistory.getDate());
-        holder.status.setText(orderHistory.getStatus());
-        holder.type.setText(orderHistory.getType());
+//        holder.status.setText(orderHistory.getStatus());
+//        holder.type.setText(orderHistory.getType());
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ConfirmCompletionActivity.class);
-                intent.putExtra("refNumber", orderHistory.getRefNumber());
-                intent.putExtra("publisherId", orderHistory.getPublisherId());
-                intent.putExtra("price", orderHistory.getPostPrice());
-                intent.putExtra("postId", orderHistory.getPostId());
-
-                context.startActivity(intent);
-
-            }
-        });
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(context, ConfirmCompletionActivity.class);
+//                intent.putExtra("refNumber", orderHistory.getRefNumber());
+//                intent.putExtra("publisherId", orderHistory.getPublisherId());
+//                intent.putExtra("price", orderHistory.getPostPrice());
+//                intent.putExtra("postId", orderHistory.getPostId());
+//
+//                context.startActivity(intent);
+//
+//            }
+//        });
 
     }
 
@@ -102,13 +102,8 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             super(itemView);
 
             ref = itemView.findViewById(R.id.order_history_item_ref);
-            price = itemView.findViewById(R.id.order_history_item_price);
-            status = itemView.findViewById(R.id.order_history_item_status);
-            postTitle = itemView.findViewById(R.id.order_history_item_postTitle);
-            tutor = itemView.findViewById(R.id.order_history_item_tutor);
             date = itemView.findViewById(R.id.order_history_item_date);
-            type = itemView.findViewById(R.id.order_history_item_type);
-            cardView = itemView.findViewById(R.id.cardView);
+
         }
     }
 }
