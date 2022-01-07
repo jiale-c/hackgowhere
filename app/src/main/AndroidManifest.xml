@@ -35,15 +35,6 @@
             android:name=".Activity.PostProgrammingActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Activity.PostMusicActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".Activity.PostFitnessActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".Activity.PostDataAnalyticsActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
             android:name=".Activity.LoginActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
@@ -54,12 +45,6 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.OrderHistoryActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".Activity.PostDesignActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".Activity.PostWritingActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.SignUpActivity"

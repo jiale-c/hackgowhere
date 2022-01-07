@@ -48,10 +48,8 @@ public class ReviewOrderActivity extends AppCompatActivity {
         image = findViewById(R.id.post_image);
         title = findViewById(R.id.title);
         desc = findViewById(R.id.orderDetails);
-        price = findViewById(R.id.price);
-        creditBalance = findViewById(R.id.creditBalance);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        paymentButton = findViewById(R.id.paymentButton);
+        paymentButton = findViewById(R.id.signup);
         backBtn = findViewById(R.id.backBtn);
 
         FirebaseDatabase.getInstance().getReference().child("Posts").child(postId).addValueEventListener(new ValueEventListener() {
@@ -62,7 +60,6 @@ public class ReviewOrderActivity extends AppCompatActivity {
                 Picasso.get().load(post.getImageurl()).into(image);
                 title.setText(post.getTitle());
                 desc.setText(post.getDescription());
-                price.setText("$" + post.getWebsite());
             }
 
             @Override
@@ -71,23 +68,46 @@ public class ReviewOrderActivity extends AppCompatActivity {
             }
         });
 
-        FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                int balance = Integer.parseInt("" + snapshot.child("balance").getValue());
-                creditBalance.setText("$" + String.valueOf(String.valueOf(balance)));
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+        paymentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(ReviewOrderActivity.this)
+                        .setTitle("Payment")
+                        .setMessage("Are you sure?")
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                                        String currentTime = Calendar.getInstance().getTime().toString();
+                                        String eventName = mPost.getTitle();
+                                        String uNumber = Long.toString(Calendar.getInstance().getTimeInMillis());
+                                        String refNumber = firebaseUser.getUid() + uNumber;
+                                        OrderHistory orderHistory1 = new OrderHistory(eventName, currentTime, mPost.getPublisher());
+                                        FirebaseDatabase.getInstance().getReference("OrderHistory").child(firebaseUser.getUid()).child(refNumber).setValue(orderHistory1);
+                                        startActivity(new Intent(ReviewOrderActivity.this, OrderHistoryActivity.class));
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                                    }
+                                });}}).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                }).setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
         });
     }

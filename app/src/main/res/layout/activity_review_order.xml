@@ -58,56 +58,6 @@
                 android:textSize="25sp"
                 android:id="@+id/orderDetails"/>
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Price:"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                android:id="@+id/priceText"/>
-
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="10dp"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/black"
-                android:id="@+id/price"/>
-    </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <TextView
-                android:id="@+id/balancetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Your Credit Balance: "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_alignParentRight="true"
-                android:id="@+id/creditBalance"/>
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -118,8 +68,8 @@
             <Button
                 android:layout_width="280dp"
                 android:layout_height="80dp"
-                android:text="Make payment"
-                android:id="@+id/paymentButton"
+                android:text="Sign up"
+                android:id="@+id/signup"
                 android:layout_centerInParent="true"
                 android:textSize="22sp">
             </Button>
