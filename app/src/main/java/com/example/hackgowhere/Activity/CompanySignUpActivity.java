@@ -54,19 +54,6 @@ public class CompanySignUpActivity extends AppCompatActivity implements View.OnC
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        //restrict username to alphanumeric characters only
-        InputFilter filter = new InputFilter() {
-            public CharSequence filter(CharSequence source, int start, int end,
-                                       Spanned dest, int dstart, int dend) {
-                for (int i = start; i < end; i++) {
-                    if (!Character.isLetterOrDigit(source.charAt(i))) {
-                        return "";
-                    }
-                }
-                return null;
-            }
-        };
-
     }
 
     @Override
@@ -118,9 +105,9 @@ public class CompanySignUpActivity extends AppCompatActivity implements View.OnC
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        User user = new User(email, username, password, mAuth.getCurrentUser().getUid(), "offline", "default", true);
+                                        User user = new User(email, username, password, mAuth.getCurrentUser().getUid(), "offline", "default",1);
                                         ref.child(mAuth.getCurrentUser().getUid()).setValue(user);
-                                        //FirebaseDatabase.getInstance().getReference("UsernameList").child(username).setValue(new UserNameLogin(email,password));
+                                        //ref.child("Admin").setValue(mAuth.getCurrentUser().getUid());
 
                                         mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override

@@ -124,7 +124,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        User user = new User(email, username, password, mAuth.getCurrentUser().getUid(), "offline", "default", false);
+                                        User user = new User(email, username, password, mAuth.getCurrentUser().getUid(), "offline", "default",0);
                                         ref.child(mAuth.getCurrentUser().getUid()).setValue(user);
                                         FirebaseDatabase.getInstance().getReference("UsernameList").child(username).setValue(new UserNameLogin(email,password));
 

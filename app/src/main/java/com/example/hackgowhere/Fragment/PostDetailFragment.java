@@ -21,8 +21,10 @@ import com.example.hackgowhere.Activity.MessageActivity;
 import com.example.hackgowhere.Activity.ReviewOrderActivity;
 import com.example.hackgowhere.Adapter.PostAdapter;
 import com.example.hackgowhere.Model.Post;
+import com.example.hackgowhere.Model.User;
 import com.example.hackgowhere.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -63,7 +65,9 @@ public class PostDetailFragment extends Fragment {
         editButton = view.findViewById(R.id.editButton);
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
+        //DatabaseReference test = FirebaseDatabase.getInstance().getReference("Users").child(firebaseAuth.getCurrentUser().getUid()).child()
 
         FirebaseDatabase.getInstance().getReference().child("Posts").child(postId).addValueEventListener(new ValueEventListener() {
             @Override
