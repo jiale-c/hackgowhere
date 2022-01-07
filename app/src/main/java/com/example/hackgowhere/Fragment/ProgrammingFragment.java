@@ -45,7 +45,7 @@ public class ProgrammingFragment extends Fragment {
         linearLayoutManager.setStackFromEnd(true);
         linearLayoutManager.setReverseLayout(true);
         categoryName = view.findViewById(R.id.categoryName);
-        categoryName.setText("Programming");
+        categoryName.setText("Hackaton Listings");
         recyclerViewPosts.setLayoutManager(linearLayoutManager);
         postList = new ArrayList<>();
         simplePostAdapter = new SimplePostAdapter(getContext(), postList);

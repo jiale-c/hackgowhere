@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.example.hackgowhere.Fragment.CategoryFragment;
+//import com.example.hackgowhere.Fragment.CategoryFragment;
+import com.example.hackgowhere.Fragment.ProgrammingFragment;
 import com.example.hackgowhere.Fragment.SearchFragment;
 import com.example.hackgowhere.Fragment.ProfileFragment;
 import com.example.hackgowhere.Fragment.MessagesFragment;
@@ -40,18 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (item.getItemId()) {
                         case R.id.nav_home:
-                            selectedFragment = new CategoryFragment();
-                            break;
-                        case R.id.nav_search:
-                            selectedFragment = new SearchFragment();
+                            selectedFragment = new ProgrammingFragment();
                             break;
                         case R.id.nav_profile:
                             selectedFragment = new ProfileFragment();
                             break;
-
-                        //fragment that displays last seen messages
-                        case R.id.nav_messages:
-                            selectedFragment = new MessagesFragment();
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -71,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new CategoryFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new ProgrammingFragment()).commit();
 
 
         firebaseAuth = FirebaseAuth.getInstance();
