@@ -24,9 +24,12 @@ Feature | Description
 -Simple posting of events for organisers | Hassle free to use this platform for publicising their event.
 
 # Overview
-[Screenshot 2022-01-08 at 11 01 45 AM](https://user-images.githubusercontent.com/77206005/148629506-f4a52665-5b89-4e61-acca-895a447d131d.png)
-[Screenshot 2022-01-08 at 11 02 05 AM](https://user-images.githubusercontent.com/77206005/148629493-562acd41-0032-4a61-852a-39c25982d742.png)
-
+![WhatsApp Image 2022-01-08 at 11 05 01 AM (1)](https://user-images.githubusercontent.com/77206005/148629590-b4679bf1-fa7c-4651-986f-e697be5ce1c6.jpeg)
+![WhatsApp Image 2022-01-08 at 11 05 01 AM (2)](https://user-images.githubusercontent.com/77206005/148629593-c01cbce2-a6fa-4385-bc81-ae5d91ca651c.jpeg)
+![Screenshot 2022-01-08 at 11 01 45 AM](https://user-images.githubusercontent.com/77206005/148629555-19d51888-1d4c-4a3e-801d-900fd383f369.png)
+![WhatsApp Image 2022-01-08 at 11 05 01 AM](https://user-images.githubusercontent.com/77206005/148629601-9821dac5-baa9-4277-ba8d-4f6d9491639d.jpeg)
+![Screenshot 2022-01-08 at 11 02 05 AM](https://user-images.githubusercontent.com/77206005/148629562-77f62059-5a5f-4535-8d82-3614f9ab86e0.png)
+![WhatsApp Image 2022-01-08 at 11 05 02 AM](https://user-images.githubusercontent.com/77206005/148629627-6c240038-a816-4521-b59b-9204e9735199.jpeg)
 
 
 # Improvements
