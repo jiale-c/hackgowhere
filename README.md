@@ -19,7 +19,7 @@ Feature | Description
 ------------ | -------------
 -Computing event listings (feed) | Overview of all current events that students can sign up for
 -One click apply for events | Simple sign up process for students to apply for hackathons wit their pre-filled info 
--Personal profile where users can upload their credientials
+-Personal profile where users can upload their credientials | Store data of frequently required information to qualify for hackathons
 -History of computing events attended | Summary of past events so that it is simple for students to know what they have achieved
 -Simple posting of events for organisers | Hassle free to use this platform for publicising their event.
 
