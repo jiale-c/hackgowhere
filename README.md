@@ -23,6 +23,12 @@ Feature | Description
 -History of computing events attended | Summary of past events so that it is simple for students to know what they have achieved
 -Simple posting of events for organisers | Hassle free to use this platform for publicising their event.
 
+# Overview
+![![Screenshot 2022-01-08 at 11 01 45 AM](https://user-images.githubusercontent.com/77206005/148629506-f4a52665-5b89-4e61-acca-895a447d131d.png)
+Screenshot 2022-01-08 at 11 02 05 AM](https://user-images.githubusercontent.com/77206005/148629493-562acd41-0032-4a61-852a-39c25982d742.png)
+
+
+
 # Improvements
 Due to time limit, we are able to set up the front end and back end database with the abovementioned core features. Given more time, additions such as collating individuals' details into a JSON file for the organiser if he or she signed up for an event.
 
