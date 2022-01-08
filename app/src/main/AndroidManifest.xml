@@ -10,21 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GrabTutor">
         <activity android:name=".Activity.ConfirmCompletionActivity" />
-        <activity android:name=".Activity.RedeemRewardsActivity" />
-        <activity android:name=".Activity.AddRewardsAdmin" />
-        <activity android:name=".Activity.RewardsHistoryActivity" />
-        <activity android:name=".Activity.RewardsRedemptionActivity" />
-        <activity android:name=".Activity.Rewards" />
-        <activity android:name=".Activity.CredentialsHistoryActivity" />
-        <activity android:name=".Activity.UploadCredentialsActivity" />
-        <activity android:name=".Activity.Credentials" />
-        <activity android:name=".Activity.PaymentHistoryActivity" />
-        <activity android:name=".Activity.PaymentConfirmationActivity" />
-        <activity android:name=".Activity.DogeCoinPaymentActivity" />
-        <activity android:name=".Activity.BitCoinPaymentActivity" />
-        <activity android:name=".Activity.CryptoPaymentActivity" />
-        <activity android:name=".Activity.BankPaymentActivity" />
-        <activity android:name=".Activity.PaymentMethodActivity" />
         <activity android:name=".Activity.LeaveReviewActivity" />
         <activity android:name=".Activity.EditReviewActivity" />
         <activity android:name=".Activity.EditPostActivity" />
@@ -50,21 +35,12 @@
             android:name=".Activity.SignUpActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Activity.Payment"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
             android:name=".Activity.UserProfileActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".Activity.MessageActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.MainActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".Activity.TopUp"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.EditUserProfileActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />

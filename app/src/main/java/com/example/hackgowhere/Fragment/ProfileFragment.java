@@ -18,11 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hackgowhere.Activity.Credentials;
 import com.example.hackgowhere.Activity.LoginActivity;
 import com.example.hackgowhere.Activity.OrderHistoryActivity;
-import com.example.hackgowhere.Activity.Payment;
-import com.example.hackgowhere.Activity.Rewards;
 import com.example.hackgowhere.Activity.UserProfileActivity;
 import com.example.hackgowhere.R;
 import com.google.firebase.auth.FirebaseAuth;

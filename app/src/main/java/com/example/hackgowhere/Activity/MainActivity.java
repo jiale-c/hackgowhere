@@ -11,9 +11,7 @@ import android.widget.Button;
 
 //import com.example.hackgowhere.Fragment.CategoryFragment;
 import com.example.hackgowhere.Fragment.ProgrammingFragment;
-import com.example.hackgowhere.Fragment.SearchFragment;
 import com.example.hackgowhere.Fragment.ProfileFragment;
-import com.example.hackgowhere.Fragment.MessagesFragment;
 import com.example.hackgowhere.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
