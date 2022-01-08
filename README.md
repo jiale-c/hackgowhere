@@ -24,8 +24,8 @@ Feature | Description
 -Simple posting of events for organisers | Hassle free to use this platform for publicising their event.
 
 # Overview
-![![Screenshot 2022-01-08 at 11 01 45 AM](https://user-images.githubusercontent.com/77206005/148629506-f4a52665-5b89-4e61-acca-895a447d131d.png)
-Screenshot 2022-01-08 at 11 02 05 AM](https://user-images.githubusercontent.com/77206005/148629493-562acd41-0032-4a61-852a-39c25982d742.png)
+[Screenshot 2022-01-08 at 11 01 45 AM](https://user-images.githubusercontent.com/77206005/148629506-f4a52665-5b89-4e61-acca-895a447d131d.png)
+[Screenshot 2022-01-08 at 11 02 05 AM](https://user-images.githubusercontent.com/77206005/148629493-562acd41-0032-4a61-852a-39c25982d742.png)
 
 
 
