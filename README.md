@@ -25,14 +25,15 @@ Feature | Description
 
 # Overview
 <p float="left">
-<img src="https://user-images.githubusercontent.com/77206005/148629590-b4679bf1-fa7c-4651-986f-e697be5ce1c6.jpeg" width="200">
-<img src="https://user-images.githubusercontent.com/77206005/148629593-c01cbce2-a6fa-4385-bc81-ae5d91ca651c.jpeg" width="200">
-<img src="https://user-images.githubusercontent.com/77206005/148629555-19d51888-1d4c-4a3e-801d-900fd383f369.png"  width="200">
-<img src="https://user-images.githubusercontent.com/77206005/148629601-9821dac5-baa9-4277-ba8d-4f6d9491639d.jpeg"  width="200">
-<img src="https://user-images.githubusercontent.com/77206005/148629562-77f62059-5a5f-4535-8d82-3614f9ab86e0.png"  width="200">
-<img src="https://user-images.githubusercontent.com/77206005/148629627-6c240038-a816-4521-b59b-9204e9735199.jpeg"  width="200">
-
-
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641610932.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641610937.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641611534.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641611524.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641610952.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641610958.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641611042.png" width="200">
+<img src="https://github.com/cwq2326/hackgowhere/blob/master/Screenshots/Screenshot_1641611350.png" width="200">
+  
 # Improvements
 Due to time limit, we are able to set up the front end and back end database with the abovementioned core features. Given more time, additions such as collating individuals' details into a JSON file for the organiser if he or she signed up for an event.
 
