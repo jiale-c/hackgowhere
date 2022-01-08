@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hackgowhere.Activity.PostProgrammingActivity;
+import com.example.hackgowhere.Activity.PostHackathonActivity;
 import com.example.hackgowhere.Adapter.SimplePostAdapter;
 import com.example.hackgowhere.Model.Post;
 import com.example.hackgowhere.R;
@@ -58,7 +58,7 @@ public class CompanyProgrammingFragment extends Fragment {
         newPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), PostProgrammingActivity.class));
+                startActivity(new Intent(getActivity(), PostHackathonActivity.class));
             }
         });
 

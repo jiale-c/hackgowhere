@@ -34,7 +34,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 
-public class PostProgrammingActivity extends AppCompatActivity {
+public class PostHackathonActivity extends AppCompatActivity {
 
     private Uri imageUri;
     private String imageUrl;
@@ -102,7 +102,7 @@ public class PostProgrammingActivity extends AppCompatActivity {
             }
         });
 
-        CropImage.activity().setAspectRatio(4,3).setFixAspectRatio(true).start(PostProgrammingActivity.this);
+        CropImage.activity().setAspectRatio(4,3).setFixAspectRatio(true).start(PostHackathonActivity.this);
     }
 
     private void upload() {
@@ -152,7 +152,7 @@ public class PostProgrammingActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(PostProgrammingActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostHackathonActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         } else {

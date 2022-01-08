@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hackgowhere.Model.OrderHistory;
 import com.example.hackgowhere.Model.Post;
@@ -29,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 
-public class ReviewOrderActivity extends AppCompatActivity {
+public class HackathonSignUpActivity extends AppCompatActivity {
 
     private String postId, userId;
     ImageView image, backBtn;
@@ -79,7 +78,7 @@ public class ReviewOrderActivity extends AppCompatActivity {
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(ReviewOrderActivity.this)
+                new AlertDialog.Builder(HackathonSignUpActivity.this)
                         .setTitle("Payment")
                         .setMessage("Are you sure?")
                         .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
@@ -93,7 +92,7 @@ public class ReviewOrderActivity extends AppCompatActivity {
                                         String refNumber = firebaseUser.getUid() + uNumber;
                                         OrderHistory orderHistory1 = new OrderHistory(eventName, currentTime, mPost.getPublisher());
                                         FirebaseDatabase.getInstance().getReference("OrderHistory").child(firebaseUser.getUid()).child(refNumber).setValue(orderHistory1);
-                                        startActivity(new Intent(ReviewOrderActivity.this, OrderHistoryActivity.class));
+                                        startActivity(new Intent(HackathonSignUpActivity.this, HackathonHistoryActivity.class));
 
                                     }
 

@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.hackgowhere.Activity.EditPostActivity;
-import com.example.hackgowhere.Activity.ReviewOrderActivity;
+import com.example.hackgowhere.Activity.HackathonSignUpActivity;
 import com.example.hackgowhere.Adapter.PostAdapter;
 import com.example.hackgowhere.Model.Post;
 import com.example.hackgowhere.R;
@@ -143,7 +143,7 @@ public class PostDetailFragment extends Fragment {
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ReviewOrderActivity.class));
+                startActivity(new Intent(getActivity(), HackathonSignUpActivity.class));
 
             }
         });

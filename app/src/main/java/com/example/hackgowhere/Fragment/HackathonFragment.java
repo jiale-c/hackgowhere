@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.hackgowhere.Activity.PostProgrammingActivity;
+import com.example.hackgowhere.Activity.PostHackathonActivity;
 import com.example.hackgowhere.Adapter.SimplePostAdapter;
 import com.example.hackgowhere.Model.Post;
 import com.example.hackgowhere.R;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProgrammingFragment extends Fragment {
+public class HackathonFragment extends Fragment {
     private RecyclerView recyclerViewPosts;
     private SimplePostAdapter simplePostAdapter;
     private List<Post> postList;
@@ -82,7 +82,7 @@ public class ProgrammingFragment extends Fragment {
         newPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), PostProgrammingActivity.class));
+                startActivity(new Intent(getActivity(), PostHackathonActivity.class));
             }
         });
 

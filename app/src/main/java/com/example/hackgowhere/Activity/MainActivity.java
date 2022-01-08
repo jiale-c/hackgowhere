@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 //import com.example.hackgowhere.Fragment.CategoryFragment;
-import com.example.hackgowhere.Fragment.ProgrammingFragment;
+import com.example.hackgowhere.Fragment.HackathonFragment;
 import com.example.hackgowhere.Fragment.ProfileFragment;
 import com.example.hackgowhere.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (item.getItemId()) {
                         case R.id.nav_home:
-                            selectedFragment = new ProgrammingFragment();
+                            selectedFragment = new HackathonFragment();
                             break;
                         case R.id.nav_profile:
                             selectedFragment = new ProfileFragment();
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new ProgrammingFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HackathonFragment()).commit();
 
 
         firebaseAuth = FirebaseAuth.getInstance();

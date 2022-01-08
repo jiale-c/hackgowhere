@@ -9,15 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GrabTutor">
-        <activity android:name=".Activity.ConfirmCompletionActivity" />
-        <activity android:name=".Activity.LeaveReviewActivity" />
-        <activity android:name=".Activity.EditReviewActivity" />
         <activity android:name=".Activity.EditPostActivity" />
         <activity
-            android:name=".Activity.ReviewActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".Activity.PostProgrammingActivity"
+            android:name=".Activity.PostHackathonActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.LoginActivity"
@@ -29,7 +23,7 @@
             android:name=".Activity.CompanySignUpActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Activity.OrderHistoryActivity"
+            android:name=".Activity.HackathonHistoryActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.SignUpActivity"
@@ -45,7 +39,7 @@
             android:name=".Activity.EditUserProfileActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Activity.ReviewOrderActivity"
+            android:name=".Activity.HackathonSignUpActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Activity.WelcomeActivity"

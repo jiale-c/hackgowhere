@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class OrderHistoryActivity extends AppCompatActivity {
+public class HackathonHistoryActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference databaseReference;
@@ -51,7 +51,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OrderHistoryActivity.this, MainActivity.class));
+                startActivity(new Intent(HackathonHistoryActivity.this, MainActivity.class));
             }
         });
 
@@ -67,7 +67,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
                     list.add(orderHistory);
                 }
                 //paymentHistoryAdapter.notifyDataSetChanged();
-                orderHistoryAdapter = new OrderHistoryAdapter(OrderHistoryActivity.this, list);
+                orderHistoryAdapter = new OrderHistoryAdapter(HackathonHistoryActivity.this, list);
                 recyclerView.setAdapter(orderHistoryAdapter);
             }
 

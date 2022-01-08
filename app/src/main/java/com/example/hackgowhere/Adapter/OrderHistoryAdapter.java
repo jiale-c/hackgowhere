@@ -1,7 +1,6 @@
 package com.example.hackgowhere.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hackgowhere.Activity.ConfirmCompletionActivity;
 import com.example.hackgowhere.Model.OrderHistory;
 import com.example.hackgowhere.R;
 import com.google.firebase.database.DataSnapshot;

@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hackgowhere.Activity.LoginActivity;
-import com.example.hackgowhere.Activity.OrderHistoryActivity;
+import com.example.hackgowhere.Activity.HackathonHistoryActivity;
 import com.example.hackgowhere.Activity.UserProfileActivity;
 import com.example.hackgowhere.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -138,7 +138,7 @@ public class ProfileFragment extends Fragment implements AdapterView.OnItemClick
             finishActivity();
         }
         if (position == 1) {
-            Intent intent = new Intent(getActivity(), OrderHistoryActivity.class);
+            Intent intent = new Intent(getActivity(), HackathonHistoryActivity.class);
             startActivity(intent);
             finishActivity();
         }
